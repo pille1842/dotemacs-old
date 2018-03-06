@@ -1,0 +1,8 @@
+*.elc
+*.eld
+*~
+auto-save-list/
+bookmarks
+helm-adaptive-history
+private.el
+straight/

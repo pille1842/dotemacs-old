@@ -345,13 +345,13 @@
 ;; Magit is an excellent interface to Git. Never having to leave Emacs for
 ;; anything is the whole point, isn't it? First, we need to manually provide a
 ;; recipe for let-alist because the wise masters have decided that nobody should
-;; use Emacs 24 anymore.
+;; be using Emacs 24 anymore.
 (use-package let-alist
   :straight (let-alist :type git :host github :repo "pille1842/let-alist"))
 ;; The keybindings are recommendations from the manual
 ;; <https://magit.vc/manual/magit.html#Getting-Started>.
 (use-package magit
-  :bind (("C-x g" . magit-status)
+  :bind (("C-x g"   . magit-status)
          ("C-x M-g" . magit-dispatch-popup))
   :config
   (global-magit-file-mode 1))

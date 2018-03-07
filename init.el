@@ -56,6 +56,12 @@
 ;; Nobody needs that bloody splash screen.
 (setq inhibit-startup-message t)
 
+;; As one of the first packages, let's use diminish.el, which allows us to hide
+;; minor modes from the modeline. We can use this together with use-package as
+;; described at
+;; <https://github.com/jwiegley/use-package#diminishing-and-delighting-minor-modes>.
+(use-package diminish)
+
 ;; Let's use a different theme: Abyss Theme taken from
 ;; <https://emacsthemes.com/themes/abyss-theme.html>.
 (use-package abyss-theme
@@ -119,6 +125,7 @@
 ;; which-key is a package that allows for easy discovery of available
 ;; keybindings.
 (use-package which-key
+  :diminish which-key-mode
   :config
   (which-key-mode))
 
@@ -133,6 +140,7 @@
 
 ;; drag-stuff adds Drag & Drop support to Emacs.
 (use-package drag-stuff
+  :diminish drag-stuff-mode
   :config
   (drag-stuff-global-mode 1))
 
@@ -154,11 +162,13 @@
 
 ;; Company is a text completion framework for Emacs.
 (use-package company
+  :diminish company-mode
   :config
   (add-hook 'after-init-hook 'global-company-mode))
 
 ;; Helm is an incremental completion and selection narrowing framework.
 (use-package helm
+  :diminish helm-mode
   :bind (("M-x" . helm-M-x)
          ("C-x C-f" . helm-find-files))
   :config
@@ -189,6 +199,7 @@
 ;; modes and also enable flyspell-prog-mode which checks strings and comments in
 ;; source code files.
 (use-package flyspell
+  :diminish flyspell-mode
   :config
   (add-hook 'text-mode-hook 'turn-on-flyspell)
   (add-hook 'prog-mode-hook 'flyspell-prog-mode))

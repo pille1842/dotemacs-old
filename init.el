@@ -77,6 +77,17 @@
 ;; Always show line numbers.
 (global-linum-mode 1)
 
+;; I want to have relative line numbers so that I can efficiently operate on
+;; multiple lines with a prefix argument (C-u). For this, we need the
+;; linum-relative package.
+(use-package linum-relative
+  :diminish linum-relative-mode
+  :config
+  (linum-relative-mode 1)
+  ;; Show the absolute line number in the current line. See
+  ;; <https://emacs.stackexchange.com/questions/19532/hybrid-line-number-mode-in-emacs>
+  (setq linum-relative-current-symbol ""))
+
 ;; Hack is a nicer font than the default. Taken from
 ;; <https://github.com/source-foundry/Hack>.
 (set-face-attribute 'default nil

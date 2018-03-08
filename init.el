@@ -385,6 +385,34 @@
 (global-set-key (kbd "C-+") 'global-scale-up)
 (global-set-key (kbd "C--") 'global-scale-down)
 
+;; engine-mode makes searching the internet from within Emacs very easy. We just
+;; require the package and set up a few search engines. Using C-x / and the
+;; letter we assigned to each defined search engine, we can search for the
+;; active region or let engine-mode prompt us for a search term if no region is
+;; active.
+(use-package engine-mode
+  :diminish engine-mode
+  :config
+  (defengine duckduckgo
+    "https://duckduckgo.com/?q=%s"
+    :keybinding "d")
+  (defengine github
+    "https://github.com/search?ref=simplesearch&q=%s"
+    :keybinding "h")
+  (defengine google
+    "https://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
+    :keybinding "g")
+  (defengine stackoverflow
+    "https://stackoverflow.com/search?q=%s"
+    :keybinding "s")
+  (defengine wikipedia-de
+    "https://www.wikipedia.org/search-redirect.php?language=de&go=Go&search=%s"
+    :keybinding "w")
+  (defengine wikipedia-en
+    "https://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
+    :keybinding "e")
+  (engine-mode t))
+
 ;; I do not want to use the Customize interface of Emacs, and I certainly don't
 ;; want any pockets of Emacs Lisp it creates to make it into my init
 ;; file. Therefore, we let the custom-file be a temporary file per session that

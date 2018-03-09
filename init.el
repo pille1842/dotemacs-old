@@ -245,7 +245,7 @@
 (ad-activate 'ansi-term)
 
 ;; I would like to have a quick keybinding to jump into an ANSI terminal.
-(global-set-key (kbd "C-x #") 'ansi-term)
+(global-set-key (kbd "<f7> t") 'ansi-term)
 
 ;; Let's set up some basic keybindings for Org as recommended by the manual
 ;; <https://orgmode.org/manual/Activation.html#Activation>.

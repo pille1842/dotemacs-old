@@ -215,6 +215,14 @@
   (add-hook 'text-mode-hook 'turn-on-flyspell)
   (add-hook 'prog-mode-hook 'flyspell-prog-mode))
 
+;; undo-tree lets you visualize the changes you have made to a document and jump
+;; back to any prior state. We globally bind C-x u to undo-tree-visualize
+;; instead of the default undo function.
+(use-package undo-tree
+  :bind (("C-x u" . undo-tree-visualize))
+  :config
+  (global-undo-tree-mode))
+
 ;; When ZSH is installed on the system, use that as the shell for the ANSI
 ;; terminal. Otherwise fallback to Bash.
 (if (executable-find "zsh")

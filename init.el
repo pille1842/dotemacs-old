@@ -247,6 +247,9 @@
 ;; I would like to have a quick keybinding to jump into an ANSI terminal.
 (global-set-key (kbd "<f7> t") 'ansi-term)
 
+;; I would also like a quick keybinding to get a calculator.
+(global-set-key (kbd "<f7> c") 'calc-dispatch)
+
 ;; Let's set up some basic keybindings for Org as recommended by the manual
 ;; <https://orgmode.org/manual/Activation.html#Activation>.
 (global-set-key (kbd "C-c l") 'org-store-link)
